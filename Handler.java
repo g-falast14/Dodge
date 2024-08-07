@@ -7,6 +7,8 @@ public class Handler {
 	
 	LinkedList<GameObject> object = new LinkedList();
 	
+	public int speed = 5;
+	
 	public void tick() {
 		for (int i = 0; i < object.size(); i++) {
 			GameObject tempObject = object.get(i);
@@ -23,6 +25,11 @@ public class Handler {
 		}
 	}
 	
+	public void clearEnemies() {
+		for (int i = 0; i < object.size(); i++) {
+			object.removeIf(x -> x.getId() != ID.Player);		
+		}
+	}
 	public void addObject(GameObject object) {
 		this.object.add(object);
 	}
